@@ -86,8 +86,8 @@ def cost_function(theta, X, y):
 def gradient_function(theta, X, y):
     m = len(y)
     _sigmoid = np.vectorize(sigmoid)
-    h = _sigmoid(np.dot(np.transpose(theta), np.transpose(X)))
-    grad = (1/m) * np.dot(np.subtract(h, np.transpose(y)), X)
+    h = _sigmoid(X.dot(theta))
+    grad = (1/m) * (h - y.T).dot(X)
     return grad.flatten()
 
 
